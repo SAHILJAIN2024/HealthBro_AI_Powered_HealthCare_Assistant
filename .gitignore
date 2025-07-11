@@ -1,0 +1,29 @@
+# Node.js dependencies
+node_modules/
+
+# Next.js build output
+.next/
+dist/
+out/
+
+# Environment variables
+.env
+.env.*
+
+# System files
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Editor settings
+.vscode/
+.idea/
+
+# Python virtual environment (for AI backend)
+myenv/
+
+# Python bytecode
+*.pyc
+__pycache__/
