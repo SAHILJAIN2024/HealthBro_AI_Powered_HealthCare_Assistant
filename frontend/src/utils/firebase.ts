@@ -1,19 +1,20 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { Database, getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyARa0dTF58PAKKcWTye-GaiaV67meLH2qg",
-  authDomain: "healthbro-3e366.firebaseapp.com",
-  projectId: "healthbro-3e366",
-  storageBucket: "healthbro-3e366.firebasestorage.app",
-  messagingSenderId: "510649565619",
-  appId: "1:510649565619:web:827dd77de7c7dbe1654bc6"
+  apiKey: "AIzaSyC4FBu_DqryPCKixbMqbarvJU9maLB-vVY",
+  authDomain: "health-broo.firebaseapp.com",
+  projectId: "health-broo",
+  storageBucket: "health-broo.firebasestorage.app",
+  messagingSenderId: "178371786788",
+  appId: "1:178371786788:web:79dea8c292c77819b280b1",
+  databaseURL: "https://health-broo-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export { app };
 export const auth = getAuth(app);
-export const db = getFirestore(app);
+export const db = getDatabase(app);
