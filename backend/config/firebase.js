@@ -8,7 +8,7 @@ const serviceAccount = require("../firebase/firebase-admin-key.json");
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://health-broo-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    databaseURL: "https://<your-project-id>.firebaseio.com"
   });
 }
 
