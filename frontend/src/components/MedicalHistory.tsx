@@ -33,7 +33,7 @@ const MedicalHistory: React.FC = () => {
   useEffect(() => {
     const fetchEmergencies = async () => {
       try {
-        const res = await fetch("/api/medical-history");
+        const res = await fetch("http://localhost:5000/api/prescription");
         const data = await res.json();
         setEmergencies(data);
       } catch (error) {

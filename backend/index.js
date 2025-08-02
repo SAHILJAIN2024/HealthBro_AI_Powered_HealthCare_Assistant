@@ -3,24 +3,38 @@ dotenv.config();
 import express from "express";
 import connectDB from './db/connectdb.js'; 
 import cors from "cors";
+import http from 'http';
+import { Server } from 'socket.io';
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: '*',"http://localhost:3000": true,
+    methods: ['GET', 'POST','PUT', 'DELETE'],
+  },
+});
 app.use(cors()); // For dev, allow all
 
-import authRoutes from "./routes/auth.routes.js";
 import symptomsPrediction from "./routes/symptomsPrediction.route.js";
 import patientRoutes from "./routes/patient.route.js";
 import doctorRoutes from "./routes/doctor.route.js";
 import userRoutes from "./routes/user.route.js";
+import clinicalNotesRoutes from "./routes/clinicalNotes.routes.js"
+import emergencyRoutes from "./routes/emergency.routes.js";
+import prescriptionRoutes from "./routes/prescription.route.js";
 // Middleware
 app.use(express.json());
+app.set("io", io); 
 
 // Routes
-app.use("/api", authRoutes); 
 app.use("/api", symptomsPrediction);
 app.use("/api/patient", patientRoutes);
 app.use("/api/doctor", doctorRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/notes",clinicalNotesRoutes)
+app.use("/api/emergency", emergencyRoutes);
+app.use("/api", prescriptionRoutes);
 
 // Server Listen
 connectDB().then(() => {

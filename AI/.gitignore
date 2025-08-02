@@ -1,0 +1,5 @@
+# Ignore Python virtual environments
+venv/
+AI/voicenote/venv/
+venv/
+*/venv/

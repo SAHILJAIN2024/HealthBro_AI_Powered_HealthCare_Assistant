@@ -1,19 +1,27 @@
 import mongoose from "mongoose";
 
 const prescriptionSchema = new mongoose.Schema({
-    uid: { type: String,
-        required: true,
-        unique: true
-    },
-    name: { type: String,
-        required: true
-    },
-    problem: { type: String,
-        required: true
-    },
-    prescription: { type: String,
-        required: true
-    }
-})
+  email: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String, // Doctor's or Patient's name
+    required: false,
+  },
+  problem: {
+    type: String, // Extracted or manually entered
+    required: false,
+  },
+  transcription: {
+    type: String,
+    required: true, // This comes from Whisper
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-export const Prescription = mongoose.model("prescription", prescriptionSchema);
+const Prescription = mongoose.model("prescription", prescriptionSchema);
+export default Prescription;

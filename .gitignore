@@ -21,11 +21,17 @@ logs/
 .vscode/
 .idea/
 
-# Python virtual environment (for AI backend)
-myenv/
+# Ignore Python virtual environments
+venv/
+AI/voicenote/venv/
+venv/
+*/venv/
+
+
 
 # Python bytecode
 *.pyc
 __pycache__/
 
 firebase-admin-key.json
+firebase.js
